@@ -29,6 +29,351 @@ nb_path: "00_core.ipynb"
 </div>
     {% endraw %}
 
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">load_ext</span> autoreload
+<span class="o">%</span><span class="k">autoreload</span> 2
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>The autoreload extension is already loaded. To reload it, use:
+  %reload_ext autoreload
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install nbdev
+<span class="o">!</span>pip install nbd_colab
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Requirement already satisfied: nbdev in /usr/local/lib/python3.6/dist-packages (1.1.5)
+Requirement already satisfied: nbconvert&lt;6 in /usr/local/lib/python3.6/dist-packages (from nbdev) (5.6.1)
+Requirement already satisfied: nbformat&gt;=4.4.0 in /usr/local/lib/python3.6/dist-packages (from nbdev) (5.0.8)
+Requirement already satisfied: ipykernel in /usr/local/lib/python3.6/dist-packages (from nbdev) (4.10.1)
+Requirement already satisfied: pip in /usr/local/lib/python3.6/dist-packages (from nbdev) (19.3.1)
+Requirement already satisfied: jupyter-client in /usr/local/lib/python3.6/dist-packages (from nbdev) (5.3.5)
+Requirement already satisfied: fastcore&gt;=1.3.1 in /usr/local/lib/python3.6/dist-packages (from nbdev) (1.3.10)
+Requirement already satisfied: pyyaml in /usr/local/lib/python3.6/dist-packages (from nbdev) (3.13)
+Requirement already satisfied: packaging in /usr/local/lib/python3.6/dist-packages (from nbdev) (20.4)
+Requirement already satisfied: jupyter-core in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev) (4.7.0)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev) (1.4.3)
+Requirement already satisfied: pygments in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev) (2.6.1)
+Requirement already satisfied: bleach in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev) (3.2.1)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev) (0.3)
+Requirement already satisfied: traitlets&gt;=4.2 in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev) (4.3.3)
+Requirement already satisfied: testpath in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev) (0.4.4)
+Requirement already satisfied: defusedxml in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev) (0.6.0)
+Requirement already satisfied: jinja2&gt;=2.4 in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev) (2.11.2)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev) (0.8.4)
+Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.6/dist-packages (from nbformat&gt;=4.4.0-&gt;nbdev) (0.2.0)
+Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /usr/local/lib/python3.6/dist-packages (from nbformat&gt;=4.4.0-&gt;nbdev) (2.6.0)
+Requirement already satisfied: tornado&gt;=4.0 in /usr/local/lib/python3.6/dist-packages (from ipykernel-&gt;nbdev) (5.1.1)
+Requirement already satisfied: ipython&gt;=4.0.0 in /usr/local/lib/python3.6/dist-packages (from ipykernel-&gt;nbdev) (5.5.0)
+Requirement already satisfied: pyzmq&gt;=13 in /usr/local/lib/python3.6/dist-packages (from jupyter-client-&gt;nbdev) (20.0.0)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/local/lib/python3.6/dist-packages (from jupyter-client-&gt;nbdev) (2.8.1)
+Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from packaging-&gt;nbdev) (1.15.0)
+Requirement already satisfied: pyparsing&gt;=2.0.2 in /usr/local/lib/python3.6/dist-packages (from packaging-&gt;nbdev) (2.4.7)
+Requirement already satisfied: webencodings in /usr/local/lib/python3.6/dist-packages (from bleach-&gt;nbconvert&lt;6-&gt;nbdev) (0.5.1)
+Requirement already satisfied: decorator in /usr/local/lib/python3.6/dist-packages (from traitlets&gt;=4.2-&gt;nbconvert&lt;6-&gt;nbdev) (4.4.2)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in /usr/local/lib/python3.6/dist-packages (from jinja2&gt;=2.4-&gt;nbconvert&lt;6-&gt;nbdev) (1.1.1)
+Requirement already satisfied: pickleshare in /usr/local/lib/python3.6/dist-packages (from ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev) (0.7.5)
+Requirement already satisfied: pexpect; sys_platform != &#34;win32&#34; in /usr/local/lib/python3.6/dist-packages (from ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev) (4.8.0)
+Requirement already satisfied: setuptools&gt;=18.5 in /usr/local/lib/python3.6/dist-packages (from ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev) (50.3.2)
+Requirement already satisfied: simplegeneric&gt;0.8 in /usr/local/lib/python3.6/dist-packages (from ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev) (0.8.1)
+Requirement already satisfied: prompt-toolkit&lt;2.0.0,&gt;=1.0.4 in /usr/local/lib/python3.6/dist-packages (from ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev) (1.0.18)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/local/lib/python3.6/dist-packages (from pexpect; sys_platform != &#34;win32&#34;-&gt;ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev) (0.6.0)
+Requirement already satisfied: wcwidth in /usr/local/lib/python3.6/dist-packages (from prompt-toolkit&lt;2.0.0,&gt;=1.0.4-&gt;ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev) (0.2.5)
+Requirement already satisfied: nbd_colab in /usr/local/lib/python3.6/dist-packages (0.0.10)
+Requirement already satisfied: fastcore in /usr/local/lib/python3.6/dist-packages (from nbd_colab) (1.3.10)
+Requirement already satisfied: nbdev in /usr/local/lib/python3.6/dist-packages (from nbd_colab) (1.1.5)
+Requirement already satisfied: packaging in /usr/local/lib/python3.6/dist-packages (from fastcore-&gt;nbd_colab) (20.4)
+Requirement already satisfied: pip in /usr/local/lib/python3.6/dist-packages (from fastcore-&gt;nbd_colab) (19.3.1)
+Requirement already satisfied: pyyaml in /usr/local/lib/python3.6/dist-packages (from nbdev-&gt;nbd_colab) (3.13)
+Requirement already satisfied: ipykernel in /usr/local/lib/python3.6/dist-packages (from nbdev-&gt;nbd_colab) (4.10.1)
+Requirement already satisfied: nbformat&gt;=4.4.0 in /usr/local/lib/python3.6/dist-packages (from nbdev-&gt;nbd_colab) (5.0.8)
+Requirement already satisfied: nbconvert&lt;6 in /usr/local/lib/python3.6/dist-packages (from nbdev-&gt;nbd_colab) (5.6.1)
+Requirement already satisfied: jupyter-client in /usr/local/lib/python3.6/dist-packages (from nbdev-&gt;nbd_colab) (5.3.5)
+Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from packaging-&gt;fastcore-&gt;nbd_colab) (1.15.0)
+Requirement already satisfied: pyparsing&gt;=2.0.2 in /usr/local/lib/python3.6/dist-packages (from packaging-&gt;fastcore-&gt;nbd_colab) (2.4.7)
+Requirement already satisfied: traitlets&gt;=4.1.0 in /usr/local/lib/python3.6/dist-packages (from ipykernel-&gt;nbdev-&gt;nbd_colab) (4.3.3)
+Requirement already satisfied: tornado&gt;=4.0 in /usr/local/lib/python3.6/dist-packages (from ipykernel-&gt;nbdev-&gt;nbd_colab) (5.1.1)
+Requirement already satisfied: ipython&gt;=4.0.0 in /usr/local/lib/python3.6/dist-packages (from ipykernel-&gt;nbdev-&gt;nbd_colab) (5.5.0)
+Requirement already satisfied: jupyter-core in /usr/local/lib/python3.6/dist-packages (from nbformat&gt;=4.4.0-&gt;nbdev-&gt;nbd_colab) (4.7.0)
+Requirement already satisfied: ipython-genutils in /usr/local/lib/python3.6/dist-packages (from nbformat&gt;=4.4.0-&gt;nbdev-&gt;nbd_colab) (0.2.0)
+Requirement already satisfied: jsonschema!=2.5.0,&gt;=2.4 in /usr/local/lib/python3.6/dist-packages (from nbformat&gt;=4.4.0-&gt;nbdev-&gt;nbd_colab) (2.6.0)
+Requirement already satisfied: pandocfilters&gt;=1.4.1 in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev-&gt;nbd_colab) (1.4.3)
+Requirement already satisfied: bleach in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev-&gt;nbd_colab) (3.2.1)
+Requirement already satisfied: entrypoints&gt;=0.2.2 in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev-&gt;nbd_colab) (0.3)
+Requirement already satisfied: testpath in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev-&gt;nbd_colab) (0.4.4)
+Requirement already satisfied: mistune&lt;2,&gt;=0.8.1 in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev-&gt;nbd_colab) (0.8.4)
+Requirement already satisfied: jinja2&gt;=2.4 in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev-&gt;nbd_colab) (2.11.2)
+Requirement already satisfied: pygments in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev-&gt;nbd_colab) (2.6.1)
+Requirement already satisfied: defusedxml in /usr/local/lib/python3.6/dist-packages (from nbconvert&lt;6-&gt;nbdev-&gt;nbd_colab) (0.6.0)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/local/lib/python3.6/dist-packages (from jupyter-client-&gt;nbdev-&gt;nbd_colab) (2.8.1)
+Requirement already satisfied: pyzmq&gt;=13 in /usr/local/lib/python3.6/dist-packages (from jupyter-client-&gt;nbdev-&gt;nbd_colab) (20.0.0)
+Requirement already satisfied: decorator in /usr/local/lib/python3.6/dist-packages (from traitlets&gt;=4.1.0-&gt;ipykernel-&gt;nbdev-&gt;nbd_colab) (4.4.2)
+Requirement already satisfied: pickleshare in /usr/local/lib/python3.6/dist-packages (from ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev-&gt;nbd_colab) (0.7.5)
+Requirement already satisfied: prompt-toolkit&lt;2.0.0,&gt;=1.0.4 in /usr/local/lib/python3.6/dist-packages (from ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev-&gt;nbd_colab) (1.0.18)
+Requirement already satisfied: pexpect; sys_platform != &#34;win32&#34; in /usr/local/lib/python3.6/dist-packages (from ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev-&gt;nbd_colab) (4.8.0)
+Requirement already satisfied: simplegeneric&gt;0.8 in /usr/local/lib/python3.6/dist-packages (from ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev-&gt;nbd_colab) (0.8.1)
+Requirement already satisfied: setuptools&gt;=18.5 in /usr/local/lib/python3.6/dist-packages (from ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev-&gt;nbd_colab) (50.3.2)
+Requirement already satisfied: webencodings in /usr/local/lib/python3.6/dist-packages (from bleach-&gt;nbconvert&lt;6-&gt;nbdev-&gt;nbd_colab) (0.5.1)
+Requirement already satisfied: MarkupSafe&gt;=0.23 in /usr/local/lib/python3.6/dist-packages (from jinja2&gt;=2.4-&gt;nbconvert&lt;6-&gt;nbdev-&gt;nbd_colab) (1.1.1)
+Requirement already satisfied: wcwidth in /usr/local/lib/python3.6/dist-packages (from prompt-toolkit&lt;2.0.0,&gt;=1.0.4-&gt;ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev-&gt;nbd_colab) (0.2.5)
+Requirement already satisfied: ptyprocess&gt;=0.5 in /usr/local/lib/python3.6/dist-packages (from pexpect; sys_platform != &#34;win32&#34;-&gt;ipython&gt;=4.0.0-&gt;ipykernel-&gt;nbdev-&gt;nbd_colab) (0.6.0)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>pip install -e .
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Obtaining file:///content/drive/My%20Drive/fastdrl/fastdrl
+Requirement already satisfied: fastcore&gt;=1.0.5 in /usr/local/lib/python3.6/dist-packages (from fastdrl==0.0.1) (1.3.10)
+Requirement already satisfied: torch&gt;=1.7.0 in /usr/local/lib/python3.6/dist-packages (from fastdrl==0.0.1) (1.7.0+cu101)
+Requirement already satisfied: torchvision&gt;=0.8 in /usr/local/lib/python3.6/dist-packages (from fastdrl==0.0.1) (0.8.1+cu101)
+Requirement already satisfied: matplotlib in /usr/local/lib/python3.6/dist-packages (from fastdrl==0.0.1) (3.2.2)
+Requirement already satisfied: pip in /usr/local/lib/python3.6/dist-packages (from fastcore&gt;=1.0.5-&gt;fastdrl==0.0.1) (19.3.1)
+Requirement already satisfied: packaging in /usr/local/lib/python3.6/dist-packages (from fastcore&gt;=1.0.5-&gt;fastdrl==0.0.1) (20.4)
+Requirement already satisfied: dataclasses in /usr/local/lib/python3.6/dist-packages (from torch&gt;=1.7.0-&gt;fastdrl==0.0.1) (0.8)
+Requirement already satisfied: typing-extensions in /usr/local/lib/python3.6/dist-packages (from torch&gt;=1.7.0-&gt;fastdrl==0.0.1) (3.7.4.3)
+Requirement already satisfied: future in /usr/local/lib/python3.6/dist-packages (from torch&gt;=1.7.0-&gt;fastdrl==0.0.1) (0.16.0)
+Requirement already satisfied: numpy in /usr/local/lib/python3.6/dist-packages (from torch&gt;=1.7.0-&gt;fastdrl==0.0.1) (1.18.5)
+Requirement already satisfied: pillow&gt;=4.1.1 in /usr/local/lib/python3.6/dist-packages (from torchvision&gt;=0.8-&gt;fastdrl==0.0.1) (7.0.0)
+Requirement already satisfied: cycler&gt;=0.10 in /usr/local/lib/python3.6/dist-packages (from matplotlib-&gt;fastdrl==0.0.1) (0.10.0)
+Requirement already satisfied: pyparsing!=2.0.4,!=2.1.2,!=2.1.6,&gt;=2.0.1 in /usr/local/lib/python3.6/dist-packages (from matplotlib-&gt;fastdrl==0.0.1) (2.4.7)
+Requirement already satisfied: python-dateutil&gt;=2.1 in /usr/local/lib/python3.6/dist-packages (from matplotlib-&gt;fastdrl==0.0.1) (2.8.1)
+Requirement already satisfied: kiwisolver&gt;=1.0.1 in /usr/local/lib/python3.6/dist-packages (from matplotlib-&gt;fastdrl==0.0.1) (1.3.1)
+Requirement already satisfied: six in /usr/local/lib/python3.6/dist-packages (from packaging-&gt;fastcore&gt;=1.0.5-&gt;fastdrl==0.0.1) (1.15.0)
+Installing collected packages: fastdrl
+  Running setup.py develop for fastdrl
+Successfully installed fastdrl
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">from</span> <span class="nn">nbdev.export</span> <span class="kn">import</span> <span class="n">notebook2script</span>
+<span class="n">notebook2script</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Converted 00_core.ipynb.
+Converted index.ipynb.
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>nbdev_install_git_hooks
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Executing: git config --local include.path ../.gitconfig
+Success: hooks are installed and repo&#39;s .gitconfig is now trusted
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>git status
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>On branch master
+Your branch is up to date with &#39;origin/master&#39;.
+
+Changes not staged for commit:
+  (use &#34;git add &lt;file&gt;...&#34; to update what will be committed)
+  (use &#34;git checkout -- &lt;file&gt;...&#34; to discard changes in working directory)
+
+	<span class="ansi-red-fg">modified:   00_core.ipynb</span>
+	<span class="ansi-red-fg">modified:   fastdrl/_nbdev.py</span>
+	<span class="ansi-red-fg">modified:   fastdrl/core.py</span>
+
+no changes added to commit (use &#34;git add&#34; and/or &#34;git commit -a&#34;)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
+    {% raw %}
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">!</span>git add -A
+<span class="o">!</span>git commit -m <span class="s1">&#39;3&#39;</span>
+<span class="o">!</span>git push
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[master 5e2ee82] 3
+ 3 files changed, 258 insertions(+), 6 deletions(-)
+Counting objects: 6, done.
+Delta compression using up to 2 threads.
+Compressing objects: 100% (6/6), done.
+Writing objects: 100% (6/6), 2.67 KiB | 683.00 KiB/s, done.
+Total 6 (delta 2), reused 0 (delta 0)
+remote: Resolving deltas: 100% (2/2), completed with 2 local objects.
+To https://github.com/manik-500/fastdrl.git
+   86acdec..5e2ee82  master -&gt; master
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    {% endraw %}
+
 </div>
  
 
